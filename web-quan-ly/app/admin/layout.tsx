@@ -2,7 +2,7 @@
 
 import { memo, useEffect, useState, type PropsWithChildren } from "react";
 import AuthCheck from "../../components/providers/AuthCheck";
-import { Button, Layout } from "antd";
+import { Button, Layout, theme } from "antd";
 import NavSider from "../../components/NavSider";
 import { Content, Header } from "antd/es/layout/layout";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
@@ -33,12 +33,15 @@ const Init = memo(function Init() {
 })
 
 const CustomLayout = memo(function CustomLayout(props: PropsWithChildren) {
+	const token = theme.useToken()
 	return <>
 		<Layout className="h-screen">
 			<NavSider />
 			<Layout>
 				<CustomHeader />
-				<Content className="m-0 my-[16px]">
+				<Content className="mx-[24px] my-[16px] p-[24px] bg-[white]" style={{
+					borderRadius: token.token.borderRadiusLG
+				}}>
 					{props.children}
 				</Content>
 			</Layout>
