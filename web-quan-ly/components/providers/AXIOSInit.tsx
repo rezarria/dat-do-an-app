@@ -1,7 +1,7 @@
 "use client"
 
 import { memo, useEffect, type PropsWithChildren } from "react";
-import useAXIOS from "../../store/useAXIOS";
+import useAXIOS from "shared/store/useAXIOS"
 import config from "../../config/api.json";
 import axios from "axios";
 

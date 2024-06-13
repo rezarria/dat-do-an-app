@@ -2,6 +2,7 @@
 	"private": "true",
 	"workspaces": [
 		"web-quan-ly",
-		"dat-do-an-app"
+		"dat-do-an-app",
+		"shared"
 	]
 }

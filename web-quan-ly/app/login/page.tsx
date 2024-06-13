@@ -8,7 +8,7 @@ import { forwardRef, memo, useCallback, useImperativeHandle as useImperativeHand
 import type { RegisterForm } from "./../../models"
 import useFormInstance from "antd/es/form/hooks/useFormInstance"
 import useApi from "../../hooks/useApi"
-import useAXIOS from "../../store/useAXIOS"
+import useAXIOS from "shared/store/useAXIOS"
 
 export default function LoginPage() {
 

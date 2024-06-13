@@ -1,4 +1,4 @@
-import useAXIOS from "../store/useAXIOS";
+import useAXIOS from "shared/store/useAXIOS"
 
 export default function useApi() {
 	const [api, isAuth, isInit] = useAXIOS(s => [s.instance, s.isAuth, s.isInit])
