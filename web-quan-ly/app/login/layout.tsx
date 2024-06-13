@@ -1,11 +1,12 @@
 "use client"
 
 import { useRouter, useSearchParams } from "next/navigation"
-import { memo, useEffect, type PropsWithChildren } from "react"
-import useApi from "../../hooks/useApi"
+import { memo, Suspense, useEffect, type PropsWithChildren } from "react"
+import { useApi } from "shared"
 
 export default function Layout(props: PropsWithChildren) {
-	return <><Observer />{props.children}</>
+	return <><Suspense>
+		<Observer /></Suspense>{props.children}</>
 }
 
 const Observer = memo(function Observer() {

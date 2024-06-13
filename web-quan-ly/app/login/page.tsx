@@ -7,17 +7,19 @@ import { Content } from "antd/es/layout/layout"
 import { forwardRef, memo, useCallback, useImperativeHandle as useImperativeHandler, useRef, useState } from "react"
 import type { RegisterForm } from "./../../models"
 import useFormInstance from "antd/es/form/hooks/useFormInstance"
-import useApi from "../../hooks/useApi"
-import useAXIOS from "shared/store/useAXIOS"
+import { useApi, useAXIOS } from "shared"
 
 export default function LoginPage() {
 
 	const setJWT = useAXIOS(s => s.setJwtToken)
 	const { api } = useApi()
 
-	const submitHandler = useCallback<NonNullable<FormProps["onFinish"]>>(() => {
+	const submitHandler = useCallback<NonNullable<FormProps["onFinish"]>>((v) => {
 		if (api) {
-			api.post<{ acess_token: string }>("/api/v1/auth/login").then(res => {
+			api.post<{ acess_token: string }>("/api/v1/auth/login", {
+				username: v.username,
+				password: v.password
+			}).then(res => {
 				console.debug("LoginPage", "login")
 				localStorage.setItem("access_token", res.data.acess_token)
 				setJWT(res.data.acess_token)
@@ -28,10 +30,20 @@ export default function LoginPage() {
 		<Content className="w-screen h-screen bg-[white] flex justify-center items-center">
 			<Card className="w-fit min-w-[400px]">
 				<Form onFinish={submitHandler} labelCol={{ span: 5 }} colon={false}>
-					<Form.Item label="Tài khoản">
+					<Form.Item label="Tài khoản" name="username" rules={[
+						{
+							required: true,
+							message: "Tài khoản không được để trống"
+						}
+					]}>
 						<Input />
 					</Form.Item>
-					<Form.Item label="Mật khẩu">
+					<Form.Item label="Mật khẩu" name="password" rules={[
+						{
+							required: true,
+							message: "Mật khẩu không được để trống"
+						}
+					]}>
 						<Input.Password />
 					</Form.Item>
 					<Form.Item label=" ">

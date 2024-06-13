@@ -28,16 +28,17 @@ const Init = memo(function Init() {
 })
 
 const InitJWT = memo(function InitJWT() {
-	const [isInit, setJwtToken] = useAXIOS(s => [s.isInit, s.setJwtToken])
+	const [instance, setIsInit, setJwtToken] = useAXIOS(s => [s.instance, s.setIsInit, s.setJwtToken])
 	useEffect(() => {
-		if (isInit) {
+		if (instance) {
 			console.debug("AXIOSInit", "set up auth")
 			let access_token = localStorage.getItem("access_token")
 			if (access_token) {
 				setJwtToken(access_token)
+				setIsInit(true)
 			}
 		}
-	}, [isInit, setJwtToken])
+	}, [instance, setIsInit, setJwtToken])
 	return <></>
 })
 
