@@ -5,7 +5,7 @@ import { Button, Card, Form, Input, Layout, Modal, Space } from "antd"
 import { useForm, type FormProps } from "antd/es/form/Form"
 import { Content } from "antd/es/layout/layout"
 import { forwardRef, memo, useCallback, useImperativeHandle as useImperativeHandler, useRef, useState } from "react"
-import type { RegisterForm } from "./../../models"
+import type { RegisterForm } from "shared/models"
 import useFormInstance from "antd/es/form/hooks/useFormInstance"
 import { useApi, useAXIOS } from "shared"
 
