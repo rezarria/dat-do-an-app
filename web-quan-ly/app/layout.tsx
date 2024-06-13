@@ -4,6 +4,7 @@ import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import AXIOSInit from "../components/providers/AXIOSInit";
 import { Suspense, type ReactNode } from "react";
+import InitProvider from "../components/providers/InitProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,13 +21,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AntdRegistry>
-          <AXIOSInit>
-            <Suspense>
-              {children}
-            </Suspense>
-          </AXIOSInit>
-        </AntdRegistry>
+        <Suspense>
+          <AntdRegistry>
+            <InitProvider>
+              <AXIOSInit>
+                {children}
+              </AXIOSInit>
+            </InitProvider>
+          </AntdRegistry>
+        </Suspense>
       </body>
     </html>
   );
