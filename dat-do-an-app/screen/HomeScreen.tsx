@@ -1,6 +1,6 @@
 import { memo } from "react"
 import { Pressable } from "react-native"
-import { YGroup, Text, XGroup, Circle, View, Input } from "tamagui"
+import { YGroup, Text, XGroup, Circle, View, Input, ScrollView } from "tamagui"
 import { Svg, Path } from "react-native-svg"
 import DanhSachCategory from "../components/DanhSachCategory"
 import DanhSachDoAn from "../components/DanhSachDoAn"
@@ -9,8 +9,12 @@ export default memo(() => {
 	return <YGroup padding={24} gap={24} flex={1} backgroundColor={"white"}>
 		<Top />
 		<TimKiem />
-		<DanhSachCategory />
-		<DanhSachDoAn />
+		<ScrollView style={{ marginHorizontal: -24, marginVertical: -24 }} showsVerticalScrollIndicator={false}>
+			<YGroup gap={24} paddingInline={24} paddingBlock={24}>
+				<DanhSachCategory />
+				<DanhSachDoAn />
+			</YGroup>
+		</ScrollView>
 	</YGroup>
 })
 
