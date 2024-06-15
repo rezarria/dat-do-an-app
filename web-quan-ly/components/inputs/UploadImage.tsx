@@ -44,6 +44,13 @@ export default function UploadImage(props: UploadImageProps) {
 		}
 	}, [props, setLoading])
 
+	let url = null
+
+	if (props.value?.startsWith("http"))
+		url = props.value
+	else
+		url = api?.defaults.baseURL + "/api/v1/images/" + props.value
+
 	return <Upload
 		showUploadList={false} openFileDialogOnClick={props.value == null}
 		listType="picture-card"
@@ -53,7 +60,7 @@ export default function UploadImage(props: UploadImageProps) {
 		{
 			props.value ?
 				<div className="w-full h-full overflow-hidden p-[6px]">
-					<Image width={"100%"} height={"100%"} style={{ objectFit: "cover" }} alt="image" wrapperClassName="w-full h-full" src={api?.defaults.baseURL + "/api/v1/images/" + props.value} />
+					<Image width={"100%"} height={"100%"} style={{ objectFit: "cover" }} alt="image" wrapperClassName="w-full h-full" src={url} />
 				</div> :
 				(loading ? <LoadingOutlined /> : <PlusOutlined />)
 		}
