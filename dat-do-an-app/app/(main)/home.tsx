@@ -1,12 +1,6 @@
-import { memo } from "react"
-import { YGroup, Text } from "tamagui"
+import HomeScreen from "../../screen/HomeScreen"
 
 export default () => {
-	return <Screen />
+	return <HomeScreen />
 }
 
-const Screen = memo(() => {
-	return <YGroup>
-		<Text >home</Text>
-	</YGroup>
-})

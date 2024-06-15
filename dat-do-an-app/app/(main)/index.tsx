@@ -1,5 +1,7 @@
-import { View } from "tamagui"
+import { View, Text } from "tamagui"
 
 export default () => {
-	return <View />
+	return <View>
+		<Text>index</Text>
+	</View>
 }
