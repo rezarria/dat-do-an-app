@@ -18,7 +18,8 @@ const Observer = memo(function Observer() {
 			console.debug("LoginPage", "done")
 			if (params.has("returnURL")) {
 				router.push(params.get("returnURL")!)
-			}
+			} else
+				router.push("/admin/food")
 		}
 	}, [isAuth, params, router])
 	return <></>
