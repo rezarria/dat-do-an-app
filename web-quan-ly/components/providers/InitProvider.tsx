@@ -2,8 +2,7 @@
 
 import { memo, useEffect, type PropsWithChildren } from "react";
 import useSiderMenu from "../../store/useSiderMenu";
-import { CodeOutlined, UserOutlined } from "@ant-design/icons";
-import { usePathname } from "next/navigation";
+import { CodeOutlined, PaperClipOutlined, UserOutlined } from "@ant-design/icons";
 
 export default function InitProvider(props: PropsWithChildren) {
 	return <>
@@ -24,8 +23,11 @@ const Init = memo(function Init() {
 			},
 			{
 				name: "user", title: "Người dùng", icon: <UserOutlined />
+			},
+			{
+				name: "order", title: "Đơn hàng", icon: <PaperClipOutlined />
 			}
 		])
-	}, [])
+	}, [setItem])
 	return <></>
 })
