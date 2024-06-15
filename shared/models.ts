@@ -27,6 +27,23 @@ export interface Page<T> {
 	"empty": boolean
 }
 
+export interface Food {
+	id: string,
+	name: string,
+	description: string,
+	price: number,
+	primaryImage?: string,
+	categoryId?: string
+}
+
+export interface Category {
+	id: string,
+	name: string,
+	description: string,
+	icon?: string,
+
+}
+
 export interface RegisterForm {
 	username: string
 	password: string
