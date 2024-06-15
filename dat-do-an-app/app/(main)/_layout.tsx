@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Stack initialRouteName="profile" screenOptions={{ headerShown: false }}>
+      <Stack initialRouteName="food" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="home" />
         <Stack.Screen name="food" />
         <Stack.Screen name="category" />
