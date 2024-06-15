@@ -9,16 +9,15 @@ const Register = memo(() => {
   return (
     <Stack f={1} jc="center" ai="center" bg="white" p={30}>
       <Text
-        f={1}
         height={35}
         lineHeight={35}
-        color="red"
+        color="#FF6347"
         fontSize={30}
         fontWeight="bold"
         marginTop={50}
         marginBottom={20}
       >
-        Registration
+        Registration2
       </Text>
       <Input
         placeholder="Email"
