@@ -76,7 +76,7 @@ const Register = memo(() => {
         marginBottom={10}
       >
         <Text color="white" height={50} lineHeight={50}>
-          Register
+          Đăng ký
         </Text>
       </Button>
       <Button
@@ -87,7 +87,7 @@ const Register = memo(() => {
         marginBottom={160}
       >
         <Text color="white" height={50} lineHeight={50}>
-          Back to Login
+          Quay lại đăng nhập
         </Text>
       </Button>
     </Stack>

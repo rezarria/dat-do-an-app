@@ -77,7 +77,7 @@ const Login = memo(() => {
         fontWeight="bold"
         marginTop={50}
       >
-        Login
+        Đăng ký
       </Text>
       <Input
         placeholder="Email"
@@ -111,7 +111,7 @@ const Login = memo(() => {
         marginBottom={10}
       >
         <Text color="white" height={50} lineHeight={50}>
-          Login
+          Đăng nhập
         </Text>
       </Button>
       <Button
@@ -122,7 +122,7 @@ const Login = memo(() => {
         marginBottom={160}
       >
         <Text color="white" height={50} lineHeight={50}>
-          Register
+          Đăng ký
         </Text>
       </Button>
     </Stack>
