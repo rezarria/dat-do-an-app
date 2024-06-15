@@ -3,12 +3,14 @@ import { Pressable } from "react-native"
 import { YGroup, Text, XGroup, Circle, View, Input } from "tamagui"
 import { Svg, Path } from "react-native-svg"
 import DanhSachCategory from "../components/DanhSachCategory"
+import DanhSachDoAn from "../components/DanhSachDoAn"
 
 export default memo(() => {
 	return <YGroup padding={24} gap={24} flex={1} backgroundColor={"white"}>
 		<Top />
 		<TimKiem />
 		<DanhSachCategory />
+		<DanhSachDoAn />
 	</YGroup>
 })
 
@@ -39,7 +41,7 @@ const TimKiem = memo(() => {
 	return <View>
 		<XGroup padding={16} alignItems="center" backgroundColor={"#1F2A3715"}>
 			<TimKiemIcon />
-			<Input height={19} flex={1} backgroundColor={"$colorTransparent"} borderWidth={0} />
+			<Input size={16} height={19} lineHeight={19} flex={1} backgroundColor={"$colorTransparent"} borderWidth={0} />
 			<ThietLapIcon />
 		</XGroup>
 	</View>

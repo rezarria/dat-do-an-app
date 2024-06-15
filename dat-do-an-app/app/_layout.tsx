@@ -30,7 +30,8 @@ export default function RootLayout() {
   return (
     <InitProvider>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack initialRouteName='(main)' screenOptions={{ headerShown: false }}>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name='index' />
           <Stack.Screen name='(main)' />
           <Stack.Screen name="login" />
         </Stack>

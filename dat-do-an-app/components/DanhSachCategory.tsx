@@ -2,21 +2,25 @@ import { memo } from "react";
 import { FlatList } from "react-native";
 import { Image, View, YGroup, Text } from "tamagui";
 
-const url = 'https://www.google.com/imgres?imgurl=https%3A%2F%2Farchive.org%2Fdownload%2Fnhentai-logo-3%2Fnhentai-logo-3.jpg&tbnid=rdy09JtJSBXLdM&vet=12ahUKEwiu__3j_92GAxVzc_UHHVJWBMoQMygAegQIARAl..i&imgrefurl=https%3A%2F%2Farchive.org%2Fdetails%2Fnhentai-logo-3&docid=1i8RcEm6lMYbIM&w=512&h=512&q=nhentai%20logo&hl=en-US&client=firefox-b-d&ved=2ahUKEwiu__3j_92GAxVzc_UHHVJWBMoQMygAegQIARAl'
+const url = 'https://asset.brandfetch.io/iduGha3_LP/id0Wg-oyAs.jpeg?updated=1716988059438'
 
 export default memo(() => {
-	return <FlatList
-		data={Array.from(Array(10).keys()).map((i) => ({
-			id: i,
-			name: '1',
-			icon: url
-		}))}
-		numColumns={4}
-		keyExtractor={(item) => item.id?.toString()}
-		renderItem={(item) => <View key={item.item.id}>
-			<YGroup>
-				<Text>{item.item.name}</Text>
-				<Image src={item.item.icon} />
-			</YGroup>
-		</View>} />
+	return <View paddingBlock={12}>
+		<FlatList
+			data={Array.from(Array(12).keys()).map((i) => ({
+				id: i,
+				name: 'item ' + i,
+				icon: url
+			}))}
+			numColumns={4}
+			style={{ margin: -24 }}
+			columnWrapperStyle={{ width: "100%", gap: 12, padding: 24, paddingVertical: 12 }}
+			keyExtractor={(item) => item.id?.toString()}
+			renderItem={(item) => <View elevationAndroid={3} backgroundColor={"white"} borderRadius={8} overflow="hidden" flex={1} key={item.item.id}>
+				<YGroup alignItems="center" padding={8} gap={8}>
+					<View><Image width={24} height={24} src={item.item.icon} /></View>
+					<Text fontSize={12} fontWeight={"bold"}>{item.item.name}</Text>
+				</YGroup>
+			</View>} />
+	</View>
 })
