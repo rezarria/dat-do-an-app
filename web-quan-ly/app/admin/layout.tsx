@@ -1,13 +1,14 @@
 "use client"
 
-import { memo, useEffect, useState, type PropsWithChildren } from "react";
+import { memo, useCallback, useEffect, useState, type PropsWithChildren } from "react";
 import AuthCheck from "../../components/providers/AuthCheck";
 import { Button, Layout, theme } from "antd";
 import NavSider from "../../components/NavSider";
 import { Content, Header } from "antd/es/layout/layout";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import { LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import useSiderMenu from "../../store/useSiderMenu";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useAXIOS } from "shared";
 
 export default function AdminLayout(props: PropsWithChildren) {
 	return <AuthCheck>
@@ -55,9 +56,20 @@ const CustomHeader = memo(function CustomHeader() {
 		backgroundColor: "white"
 	}}>
 		<ToggleButton />
+		<LogoutButton />
 	</Header>
 })
 
+const LogoutButton = memo(function LogoutButton() {
+	const setJwt = useAXIOS(s => s.setJwtToken)
+	const router = useRouter()
+	const clickHandler = useCallback(() => {
+		localStorage.clear()
+		setJwt(undefined)
+		router.push('/login')
+	}, [router, setJwt])
+	return <Button onClick={clickHandler} type="text" icon={<LogoutOutlined />}>Đăng xuất</Button>
+})
 
 const ToggleButton = memo(function ToggleButton() {
 	const [collapsed, setCollapsed] = useSiderMenu(s => [s.open, s.setOpen])
